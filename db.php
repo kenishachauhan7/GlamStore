@@ -1,20 +1,12 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+$host = "sql300.infinityfree.com";
+$dbname = "if0_42269560_glamstore";
+$username = "if0_42269560";
+$password = "WirRJ5IKrLD";
 
-$host = "localhost";
+$conn = new mysqli($host, $username, $password, $dbname);
 
-// db.php - Database connection file
-// Include this file on every page: include('db.php');
-
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "glamstore_db";
-
-$conn = mysqli_connect($host, $user, $password, $database);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
